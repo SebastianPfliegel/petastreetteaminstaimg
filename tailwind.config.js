@@ -5,7 +5,8 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
-        '1080px': '1080px'
+        '1080px': '1080px',
+        '1350px': '1350px'
       },
       colors: {
         'peta-blue': '#009fe3'
