@@ -3,6 +3,14 @@ import { ref, computed } from 'vue'
 import domtoimage from 'dom-to-image'
 import InstaImg from './components/InstaImg.vue'
 
+const teams = ref([
+  {
+    name: 'Nürnberg',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  }
+])
+
+const team = ref(teams.value[0])
 const name = ref('')
 const date = ref('')
 const time = ref('')
@@ -10,7 +18,9 @@ const location = ref('')
 const instaImg = ref()
 const downloadBtn = ref()
 
-const fileName = computed(() => `${name.value.trim()}_${time.value.trim()}.jpg`)
+const fileName = computed(
+  () => `${team.value.name.trim()}_${name.value.trim()}_${date.value.trim()}.jpg`
+)
 const enabledDownloadBtn = computed(
   () => !!name.value && !!date.value && !!time.value && !!location.value
 )
@@ -34,13 +44,25 @@ function download() {
       </h1>
       <form @submit.prevent="download" class="flex flex-col gap-2">
         <div>
+          <label for="team" class="font-medium leading-6 text-gray-900">Streetteam:</label>
+          <select
+            name="team"
+            id="team"
+            disabled
+            v-model="team"
+            class="mt-2 w-full rounded-md border-0 px-4 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-peta-blue disabled:bg-gray-50"
+          >
+            <option v-for="(t, i) in teams" :key="i" :value="t">{{ t.name }}</option>
+          </select>
+        </div>
+        <div>
           <label for="name" class="font-medium leading-6 text-gray-900">Aktionsname:</label>
           <input
             type="text"
             name="name"
             id="name"
             class="mt-2 w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-peta-blue"
-            placeholder="Ampeldemo"
+            placeholder="Aktion gegen Pferdemissbrauch"
             v-model="name"
           />
         </div>
@@ -51,7 +73,7 @@ function download() {
             name="date"
             id="date"
             class="mt-2 w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-peta-blue"
-            placeholder="18. Mai 2023"
+            placeholder="05. Februar 2023"
             v-model="date"
           />
         </div>
@@ -62,7 +84,7 @@ function download() {
             name="time"
             id="time"
             class="mt-2 w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-peta-blue"
-            placeholder="14:00 Uhr"
+            placeholder="15:00"
             v-model="time"
           />
         </div>
@@ -73,7 +95,7 @@ function download() {
             name="location"
             id="location"
             class="mt-2 w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-peta-blue"
-            placeholder="Stuttgarter Innenstadt"
+            placeholder="Arena Nürnberger Versicherung"
             v-model="location"
           />
         </div>
@@ -94,6 +116,7 @@ function download() {
         :date="date"
         :time="time"
         :location="location"
+        :img="team.img"
       ></InstaImg>
     </div>
   </div>

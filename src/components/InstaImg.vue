@@ -5,13 +5,14 @@ defineProps({
   name: String,
   date: String,
   time: String,
-  location: String
+  location: String,
+  img: String
 })
 </script>
 
 <template>
   <div class="relative h-1350px w-1080px">
-    <img src="../assets/templates/nuernberg.jpg" />
+    <img :src="img" />
     <div
       class="absolute right-[44px] top-[475px] flex h-[500px] w-[992px] flex-col items-center justify-center p-[62px] text-white"
     >
