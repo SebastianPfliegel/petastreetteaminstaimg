@@ -5,12 +5,140 @@ import InstaImg from './components/InstaImg.vue'
 
 const teams = ref([
   {
+    name: 'Rostock',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Lübeck',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Hamburg',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Lüneburg',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Bremen',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Berlin',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Hannover',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Osnabrück',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Kleve',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Dortmund',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Essen',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Düsseldorf',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Wuppertal',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Köln/Bonn',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Siegen',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Göttingen',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Leipzig',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Dresden',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Coburg',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Bamberg',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
     name: 'Nürnberg',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Rosenheim',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Rhein-Main',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Bingen',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Saarbrücken',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Kaiserslautern',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Heidelberg',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Karlsruhe',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Stuttgart',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Tübingen',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Memmingen',
+    img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
+  },
+  {
+    name: 'Konstanz',
     img: new URL('./assets/templates/nuernberg.jpg', import.meta.url).href
   }
 ])
 
-const team = ref(teams.value[0])
+const sortedTeams = computed(() =>
+  [...teams.value].sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+)
+
+const team = ref(sortedTeams.value[0])
 const name = ref('')
 const date = ref('')
 const time = ref('')
@@ -48,11 +176,10 @@ function download() {
           <select
             name="team"
             id="team"
-            disabled
             v-model="team"
-            class="mt-2 w-full rounded-md border-0 px-4 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-peta-blue disabled:bg-gray-50"
+            class="mt-2 w-full rounded-md border-0 bg-white px-4 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-peta-blue"
           >
-            <option v-for="(t, i) in teams" :key="i" :value="t">{{ t.name }}</option>
+            <option v-for="(t, i) in sortedTeams" :key="i" :value="t">{{ t.name }}</option>
           </select>
         </div>
         <div>
