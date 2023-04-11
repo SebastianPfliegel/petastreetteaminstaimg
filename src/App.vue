@@ -2,6 +2,11 @@
 import { ref, computed } from 'vue'
 import domtoimage from 'dom-to-image'
 import InstaImg from './components/InstaImg.vue'
+import TextInput from './components/Input/TextInput.vue'
+import DateInput from './components/Input/DateInput.vue'
+import TimeInput from './components/Input/TimeInput.vue'
+
+const params = new URLSearchParams(window.location.search)
 
 const teams = ref([
   {
@@ -138,7 +143,18 @@ const sortedTeams = computed(() =>
   [...teams.value].sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
 )
 
+const enabledTeamSelection = ref(true)
 const team = ref(sortedTeams.value[0])
+
+const teamParam = params.get('team')
+if (teamParam) {
+  const foundTeam = teams.value.find((t) => t.name.toLowerCase() === teamParam.toLowerCase())
+  if (foundTeam) {
+    team.value = foundTeam
+    enabledTeamSelection.value = false
+  }
+}
+
 const name = ref('')
 const date = ref('')
 const time = ref('')
@@ -146,12 +162,11 @@ const location = ref('')
 const instaImg = ref()
 const downloadBtn = ref()
 
-const fileName = computed(
-  () => `${team.value.name.trim()}_${name.value.trim()}_${date.value.trim()}.jpg`
-)
+const fileName = computed(() => `${date.value}_${team.value.name}_${name.value}.jpg`)
 const enabledDownloadBtn = computed(
   () => !!name.value && !!date.value && !!time.value && !!location.value
 )
+const dateVal = computed(() => new Date(Date.parse(date.value)))
 
 function download() {
   domtoimage.toJpeg(instaImg.value.$el).then((dataUrl) => {
@@ -163,88 +178,49 @@ function download() {
 </script>
 
 <template>
-  <div
-    class="relative flex h-screen w-screen justify-center overflow-hidden bg-white sm:items-center sm:bg-gray-50"
-  >
-    <main class="bg-white p-10 sm:rounded-xl sm:shadow-2xl">
-      <h1 class="mb-2 text-center text-2xl font-bold underline decoration-peta-blue">
-        PETA Streetteam Instagram Image
-      </h1>
-      <form @submit.prevent="download" class="flex flex-col gap-2">
-        <div>
-          <label for="team" class="font-medium leading-6 text-gray-900">Streetteam:</label>
+  <div class="relative h-screen w-screen">
+    <header class="bg-black p-4 text-white">
+      <h1 class="text-2xl font-bold">PETA Streetteam Instagram Image Generator</h1>
+    </header>
+    <main class="flex flex-col items-center bg-white">
+      <form @submit.prevent="download" class="mt-2 flex w-full max-w-lg flex-col gap-6 p-8">
+        <div class="relative">
           <select
-            name="team"
             id="team"
+            name="team"
+            :disabled="!enabledTeamSelection"
             v-model="team"
-            class="mt-2 w-full rounded-md border-0 bg-white px-4 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-peta-blue"
+            class="h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:border-peta-blue focus:outline-none"
           >
             <option v-for="(t, i) in sortedTeams" :key="i" :value="t">{{ t.name }}</option>
           </select>
+          <label for="team" class="absolute -top-3.5 left-0 text-sm text-gray-600">
+            Streetteam
+          </label>
         </div>
-        <div>
-          <label for="name" class="font-medium leading-6 text-gray-900">Aktionsname:</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            class="mt-2 w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-peta-blue"
-            placeholder="Aktion gegen Pferdemissbrauch"
-            v-model="name"
-          />
-        </div>
-        <div>
-          <label for="date" class="font-medium leading-6 text-gray-900">Datum:</label>
-          <input
-            type="text"
-            name="date"
-            id="date"
-            class="mt-2 w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-peta-blue"
-            placeholder="05. Februar 2023"
-            v-model="date"
-          />
-        </div>
-        <div>
-          <label for="time" class="font-medium leading-6 text-gray-900">Zeit:</label>
-          <input
-            type="text"
-            name="time"
-            id="time"
-            class="mt-2 w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-peta-blue"
-            placeholder="15:00"
-            v-model="time"
-          />
-        </div>
-        <div>
-          <label for="location" class="font-medium leading-6 text-gray-900">Ort:</label>
-          <input
-            type="text"
-            name="location"
-            id="location"
-            class="mt-2 w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-peta-blue"
-            placeholder="Arena Nürnberger Versicherung"
-            v-model="location"
-          />
-        </div>
+        <TextInput field="name" label="Aktionsname" v-model="name" />
+        <DateInput field="date" label="Datum" v-model="date" />
+        <TimeInput field="time" label="Zeit" v-model="time" />
+        <TextInput field="location" label="Ort" v-model="location" />
         <button
           :disabled="!enabledDownloadBtn"
           type="submit"
-          class="mt-2 self-center rounded-md bg-peta-blue px-4 py-2 text-white shadow-sm disabled:bg-gray-400"
+          class="w-fit bg-black px-5 py-2 text-lg font-bold uppercase text-white shadow-sm hover:bg-peta-blue disabled:bg-gray-400 sm:py-4"
         >
-          Download
+          Bild speichern
         </button>
       </form>
       <a ref="downloadBtn" class="hidden">Download</a>
     </main>
-    <div class="absolute right-0 top-0 translate-x-full">
+    <div class="absolute left-0 top-0 -translate-x-full -translate-y-full">
       <InstaImg
         ref="instaImg"
         :name="name"
-        :date="date"
+        :date="dateVal"
         :time="time"
         :location="location"
         :img="team.img"
-      ></InstaImg>
+      />
     </div>
   </div>
 </template>
