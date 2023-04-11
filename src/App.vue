@@ -179,8 +179,10 @@ function download() {
 
 <template>
   <div class="relative h-screen w-screen">
-    <header class="bg-black p-4 text-white">
-      <h1 class="text-2xl font-bold">PETA Streetteam Instagram Image Generator</h1>
+    <header class="bg-black p-4 text-white selection:bg-peta-blue">
+      <h1 class="text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
+        PETA Streetteam Instagram Image Generator
+      </h1>
     </header>
     <main class="flex flex-col items-center bg-white">
       <form @submit.prevent="download" class="mt-2 flex w-full max-w-lg flex-col gap-6 p-8">
@@ -190,7 +192,7 @@ function download() {
             name="team"
             :disabled="!enabledTeamSelection"
             v-model="team"
-            class="h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:border-peta-blue focus:outline-none"
+            class="h-10 w-full border-b-2 border-gray-300 bg-white text-gray-900 focus:border-peta-blue focus:outline-none"
           >
             <option v-for="(t, i) in sortedTeams" :key="i" :value="t">{{ t.name }}</option>
           </select>
