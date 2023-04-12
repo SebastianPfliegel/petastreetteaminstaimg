@@ -56,13 +56,6 @@ export const teams = [
     ).href
   },
   {
-    name: 'Duisburg',
-    img: new URL(
-      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Duisburg.jpg',
-      import.meta.url
-    ).href
-  },
-  {
     name: 'Essen',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Essen.jpg',
