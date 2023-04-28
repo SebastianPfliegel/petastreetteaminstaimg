@@ -21,7 +21,7 @@ function updateValue(event: Event) {
       :value="props.modelValue"
       @input="updateValue($event)"
       type="text"
-      class="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:border-peta-blue focus:outline-none"
+      class="peer h-10 w-full border-b-2 border-gray-300 bg-none text-gray-900 placeholder-transparent focus:border-peta-blue focus:outline-none"
       :placeholder="label"
     />
     <label

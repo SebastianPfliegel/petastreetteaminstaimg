@@ -64,7 +64,7 @@ function download() {
             name="team"
             :disabled="!enabledTeamSelection"
             v-model="team"
-            class="h-10 w-full border-b-2 border-gray-300 bg-white text-gray-900 focus:border-peta-blue focus:outline-none"
+            class="h-10 w-full border-b-2 border-gray-300 bg-none text-gray-900 focus:border-peta-blue focus:outline-none"
           >
             <option v-for="(t, i) in sortedTeams" :key="i" :value="t">{{ t.name }}</option>
           </select>

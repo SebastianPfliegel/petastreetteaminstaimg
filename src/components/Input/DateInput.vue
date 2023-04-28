@@ -21,7 +21,7 @@ function updateValue(event: Event) {
       :value="props.modelValue"
       @input="updateValue($event)"
       type="date"
-      class="h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:border-peta-blue focus:outline-none"
+      class="h-10 w-full border-b-2 border-gray-300 bg-none text-gray-900 focus:border-peta-blue focus:outline-none"
     />
     <label :for="field" class="absolute -top-3.5 left-0 text-sm text-gray-600">{{ label }}</label>
   </div>
