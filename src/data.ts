@@ -1,12 +1,5 @@
 export const teams = [
   {
-    name: 'Bamberg',
-    img: new URL(
-      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Bamberg.jpg',
-      import.meta.url
-    ).href
-  },
-  {
     name: 'Berlin',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Berlin.jpg',
@@ -101,13 +94,6 @@ export const teams = [
     name: 'Karlsruhe',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Karlsruhe.jpg',
-      import.meta.url
-    ).href
-  },
-  {
-    name: 'Kleve',
-    img: new URL(
-      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Kleve.jpg',
       import.meta.url
     ).href
   },
