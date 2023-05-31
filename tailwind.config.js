@@ -2,6 +2,7 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   content: ['./index.html', './src/**/*.{ts,vue}'],
+  darkMode: 'class',
   theme: {
     extend: {
       spacing: {
