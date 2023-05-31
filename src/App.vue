@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import domtoimage from 'dom-to-image'
 import InstaImg from './components/InstaImg.vue'
+import GithubLogo from './components/Icons/GithubLogo.vue'
 import SunIcon from './components/Icons/SunIcon.vue'
 import MoonIcon from './components/Icons/MoonIcon.vue'
 import TextInput from './components/Input/TextInput.vue'
@@ -71,7 +72,9 @@ function toggleTheme() {
 
 <template>
   <div :class="{ dark: darkMode }">
-    <div class="relative h-screen w-screen bg-white dark:bg-stone-800">
+    <div
+      class="relative flex min-h-screen w-screen flex-col justify-between bg-white dark:bg-stone-800"
+    >
       <header
         class="flex items-center justify-between bg-black p-4 text-white selection:bg-peta-blue"
       >
@@ -83,7 +86,7 @@ function toggleTheme() {
           <MoonIcon v-else></MoonIcon>
         </button>
       </header>
-      <main class="flex flex-col items-center">
+      <main class="mb-auto flex flex-col items-center">
         <form @submit.prevent="download" class="mt-2 flex w-full max-w-lg flex-col gap-6 p-8">
           <div class="relative">
             <select
@@ -116,6 +119,14 @@ function toggleTheme() {
         </form>
         <a ref="downloadBtn" class="hidden">Download</a>
       </main>
+      <footer class="flex justify-center p-2 text-black dark:text-white">
+        <a
+          href="https://github.com/SebastianPfliegel/petastreetteaminstaimg"
+          target="_blank"
+          class="rounded-full p-2 hover:bg-black/20 dark:hover:bg-white/20"
+          ><GithubLogo></GithubLogo
+        ></a>
+      </footer>
       <div class="absolute left-0 top-0 -translate-x-full -translate-y-full">
         <InstaImg
           ref="instaImg"
