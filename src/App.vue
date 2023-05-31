@@ -10,6 +10,9 @@ import DateInput from './components/Input/DateInput.vue'
 import TimeInput from './components/Input/TimeInput.vue'
 import data from './data'
 
+const appVersion = APP_VERSION
+const repositoryUrl = 'https://github.com/SebastianPfliegel/petastreetteaminstaimg'
+
 const params = new URLSearchParams(window.location.search)
 
 const teams = ref(data.teams)
@@ -80,8 +83,14 @@ function toggleTheme() {
       >
         <h1 class="text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
           PETA Streetteam Instagram Image Generator
+          <a
+            :href="repositoryUrl + '/releases/tag/v' + appVersion"
+            target="_blank"
+            class="text-xs font-light"
+            >v{{ appVersion }}</a
+          >
         </h1>
-        <button class="rounded-full p-2 hover:bg-white/20" @click="toggleTheme">
+        <button class="rounded-full p-2 transition hover:bg-white/20" @click="toggleTheme">
           <SunIcon v-if="darkMode"></SunIcon>
           <MoonIcon v-else></MoonIcon>
         </button>
@@ -121,7 +130,7 @@ function toggleTheme() {
       </main>
       <footer class="flex justify-center p-2 text-black dark:text-white">
         <a
-          href="https://github.com/SebastianPfliegel/petastreetteaminstaimg"
+          :href="repositoryUrl"
           target="_blank"
           class="rounded-full p-2 hover:bg-black/20 dark:hover:bg-white/20"
           ><GithubLogo></GithubLogo
