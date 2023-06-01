@@ -1,3 +1,6 @@
+// eslint-disable-next-line no-undef
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 // eslint-disable-next-line no-undef
 module.exports = {
@@ -5,6 +8,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Roboto', ...defaultTheme.fontFamily.sans]
+      },
       spacing: {
         '1080px': '1080px',
         '1350px': '1350px'
