@@ -119,13 +119,6 @@ export const teams = [
     ).href
   },
   {
-    name: 'Lübeck',
-    img: new URL(
-      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Luebeck.jpg',
-      import.meta.url
-    ).href
-  },
-  {
     name: 'Lüneburg',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Lueneburg.jpg',
