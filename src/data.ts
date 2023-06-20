@@ -175,13 +175,6 @@ export const teams = [
     ).href
   },
   {
-    name: 'Siegen',
-    img: new URL(
-      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Siegen.jpg',
-      import.meta.url
-    ).href
-  },
-  {
     name: 'Stuttgart',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Stuttgart.jpg',
