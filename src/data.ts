@@ -98,6 +98,13 @@ export const teams = [
     ).href
   },
   {
+    name: 'Kempten',
+    img: new URL(
+      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Kempten.jpg',
+      import.meta.url
+    ).href
+  },
+  {
     name: 'Köln/Bonn',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_KoelnBonn.jpg',
@@ -157,13 +164,6 @@ export const teams = [
     name: 'Rosenheim',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Rosenheim.jpg',
-      import.meta.url
-    ).href
-  },
-  {
-    name: 'Rostock',
-    img: new URL(
-      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Rostock.jpg',
       import.meta.url
     ).href
   },
