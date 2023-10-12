@@ -3,6 +3,8 @@ import { ref, computed } from 'vue'
 import domtoimage from 'dom-to-image'
 import InstaImg from './components/InstaImg.vue'
 import GithubLogo from './components/Icons/GithubLogo.vue'
+import FacebookLogo from './components/Icons/FacebookLogo.vue'
+import InstagramLogo from './components/Icons/InstagramLogo.vue'
 import SunIcon from './components/Icons/SunIcon.vue'
 import MoonIcon from './components/Icons/MoonIcon.vue'
 import TextInput from './components/Input/TextInput.vue'
@@ -128,13 +130,22 @@ function toggleTheme() {
         </form>
         <a ref="downloadBtn" class="hidden">Download</a>
       </main>
-      <footer class="flex justify-center p-2 text-black dark:text-white">
-        <a
-          :href="repositoryUrl"
-          target="_blank"
-          class="rounded-full p-2 hover:bg-black/20 dark:hover:bg-white/20"
-          ><GithubLogo></GithubLogo
-        ></a>
+      <footer class="p-2 text-black dark:text-white">
+        <ul class="flex justify-center gap-0.5">
+          <li class="rounded-full p-2 hover:bg-black/20 dark:hover:bg-white/20">
+            <a :href="repositoryUrl" target="_blank"><GithubLogo></GithubLogo></a>
+          </li>
+          <li class="rounded-full p-2 hover:bg-black/20 dark:hover:bg-white/20">
+            <a href="https://www.facebook.com/sebastian.pfliegel/" target="_blank">
+              <FacebookLogo></FacebookLogo>
+            </a>
+          </li>
+          <li class="rounded-full p-2 hover:bg-black/20 dark:hover:bg-white/20">
+            <a href="https://www.instagram.com/sebastianpfliegel/" target="_blank">
+              <InstagramLogo></InstagramLogo
+            ></a>
+          </li>
+        </ul>
       </footer>
       <div class="absolute left-0 top-0 -translate-x-full -translate-y-full">
         <InstaImg

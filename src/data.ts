@@ -84,6 +84,13 @@ export const teams = [
     ).href
   },
   {
+    name: 'Jena',
+    img: new URL(
+      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Jena.jpg',
+      import.meta.url
+    ).href
+  },
+  {
     name: 'Kaiserslautern',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Kaiserslautern.jpg',
