@@ -133,13 +133,6 @@ export const teams = [
     ).href
   },
   {
-    name: 'Lüneburg',
-    img: new URL(
-      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Lueneburg.jpg',
-      import.meta.url
-    ).href
-  },
-  {
     name: 'Memmingen',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Memmingen.jpg',
