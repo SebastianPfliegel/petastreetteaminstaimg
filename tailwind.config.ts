@@ -1,11 +1,9 @@
-// eslint-disable-next-line no-undef
-const defaultTheme = require('tailwindcss/defaultTheme')
+import type { Config } from 'tailwindcss'
+import * as defaultTheme from 'tailwindcss/defaultTheme'
 
-/** @type {import('tailwindcss').Config} */
-// eslint-disable-next-line no-undef
-module.exports = {
+export default {
   content: ['./index.html', './src/**/*.{ts,vue}'],
-  darkMode: 'class',
+  darkMode: 'selector',
   theme: {
     extend: {
       fontFamily: {
@@ -21,4 +19,4 @@ module.exports = {
     }
   },
   plugins: []
-}
+} satisfies Config
