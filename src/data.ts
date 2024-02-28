@@ -189,6 +189,13 @@ export const teams = [
     ).href
   },
   {
+    name: 'Weißenfels',
+    img: new URL(
+      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Weißenfels.jpg',
+      import.meta.url
+    ).href
+  },
+  {
     name: 'Wuppertal',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Wuppertal.jpg',
