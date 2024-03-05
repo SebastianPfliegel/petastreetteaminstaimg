@@ -42,13 +42,6 @@ export const teams = [
     ).href
   },
   {
-    name: 'Essen',
-    img: new URL(
-      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Essen.jpg',
-      import.meta.url
-    ).href
-  },
-  {
     name: 'Göttingen',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Goettingen.jpg',
