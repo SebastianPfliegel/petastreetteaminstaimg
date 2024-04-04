@@ -91,6 +91,13 @@ export const teams = [
     ).href
   },
   {
+    name: 'Kassel',
+    img: new URL(
+      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Kassel.jpg',
+      import.meta.url
+    ).href
+  },
+  {
     name: 'Kiel',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Kiel.jpg',
