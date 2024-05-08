@@ -105,6 +105,13 @@ export const teams = [
     ).href
   },
   {
+    name: 'Koblenz',
+    img: new URL(
+      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Koblenz.jpg',
+      import.meta.url
+    ).href
+  },
+  {
     name: 'Köln/Bonn',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_KoelnBonn.jpg',
