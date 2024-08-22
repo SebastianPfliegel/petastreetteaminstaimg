@@ -1,5 +1,12 @@
 export const teams = [
   {
+    name: 'Bad Kreuznach',
+    img: new URL(
+      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_BadKreuznach.jpg',
+      import.meta.url
+    ).href
+  },
+  {
     name: 'Berlin',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Berlin.jpg',

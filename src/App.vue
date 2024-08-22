@@ -107,7 +107,14 @@ function toggleTheme() {
               v-model="team"
               class="h-10 w-full border-b-2 border-gray-300 bg-inherit text-gray-900 focus:border-peta-blue focus:outline-none dark:border-white dark:text-white dark:focus:border-peta-blue"
             >
-              <option v-for="(t, i) in sortedTeams" :key="i" :value="t">{{ t.name }}</option>
+              <option
+                class="bg-stone-100 text-gray-900 dark:bg-stone-700 dark:text-white"
+                v-for="(t, i) in sortedTeams"
+                :key="i"
+                :value="t"
+              >
+                {{ t.name }}
+              </option>
             </select>
             <label
               for="team"
@@ -123,7 +130,7 @@ function toggleTheme() {
           <button
             :disabled="!enabledDownloadBtn"
             type="submit"
-            class="w-fit bg-black px-5 py-2 text-lg font-bold uppercase text-white shadow-sm transition hover:bg-peta-blue disabled:bg-gray-400 dark:bg-white dark:text-black dark:hover:bg-peta-blue dark:hover:text-white dark:disabled:bg-gray-400 dark:disabled:text-white sm:py-4"
+            class="w-fit bg-black px-5 py-2 text-lg font-bold uppercase text-white shadow-sm transition hover:bg-peta-blue disabled:bg-gray-400 sm:py-4 dark:bg-white dark:text-black dark:hover:bg-peta-blue dark:hover:text-white dark:disabled:bg-gray-400 dark:disabled:text-white"
           >
             Bild speichern
           </button>
