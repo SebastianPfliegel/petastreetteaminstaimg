@@ -20,7 +20,7 @@ const params = new URLSearchParams(window.location.search)
 const teams = ref(data.teams)
 
 const sortedTeams = computed(() =>
-  [...teams.value].sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+  [...teams.value].sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())),
 )
 
 const enabledTeamSelection = ref(true)
@@ -45,7 +45,7 @@ const darkMode = ref(getTheme() === 'dark')
 
 const fileName = computed(() => `${date.value}_${team.value.name}_${name.value}.jpg`)
 const enabledDownloadBtn = computed(
-  () => !!name.value && !!date.value && !!time.value && !!location.value
+  () => !!name.value && !!date.value && !!time.value && !!location.value,
 )
 const dateVal = computed(() => new Date(Date.parse(date.value)))
 

@@ -6,7 +6,7 @@ const props = defineProps({
   date: Date,
   time: String,
   location: String,
-  img: String
+  img: String,
 })
 
 const months = [
@@ -21,7 +21,7 @@ const months = [
   'September',
   'Oktober',
   'November',
-  'Dezember'
+  'Dezember',
 ]
 
 const formattedDate = computed(() => {
