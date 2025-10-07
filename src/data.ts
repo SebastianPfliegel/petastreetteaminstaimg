@@ -154,6 +154,13 @@ export const teams = [
     ).href,
   },
   {
+    name: 'München',
+    img: new URL(
+      './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Muenchen.jpg',
+      import.meta.url,
+    ).href,
+  },
+  {
     name: 'Nürnberg',
     img: new URL(
       './assets/templates/Aktionsankuendigung-Streetteam-1080x1350px_Nuernberg.jpg',
